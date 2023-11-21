@@ -94,6 +94,23 @@ class HomePage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(14),
                     color: kWhiteColor,
                   ),
+                  child: Row(
+                    children: [
+                      Text(
+                        'Seach',
+                        style: greyTextStyle.copyWith(
+                          fontSize: 16,
+                          fontWeight: semiBold,
+                        ),
+                      ),
+                      const Spacer(),
+                      Image.asset(
+                        'assets/icon_search.png',
+                        width: 24,
+                        color: kGreyColor,
+                      )
+                    ],
+                  ),
                 )
               ],
             )
