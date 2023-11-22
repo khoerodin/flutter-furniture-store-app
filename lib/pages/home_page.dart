@@ -1,4 +1,6 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:space/pages/home_category_item.dart';
 import 'package:space/theme.dart';
 
 class HomePage extends StatelessWidget {
@@ -110,6 +112,48 @@ class HomePage extends StatelessWidget {
                         color: kGreyColor,
                       )
                     ],
+                  ),
+                ),
+
+                // NOTE: CATEGORY TITLE
+                Container(
+                  margin: const EdgeInsets.only(
+                    top: 30,
+                    left: 24,
+                    right: 24,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Category',
+                        style: blackTextStyle.copyWith(
+                          fontSize: 20,
+                          fontWeight: semiBold,
+                        ),
+                      ),
+                      Text(
+                        'Show All',
+                        style: blackTextStyle,
+                      )
+                    ],
+                  ),
+                ),
+
+                // NOTE: CATEGORY CAROUSEL
+                Container(
+                  margin: const EdgeInsets.only(
+                    top: 25,
+                  ),
+                  child: CarouselSlider(
+                    items: const [
+                      HomeCategoryItem(
+                        title: 'Minimalis Chair',
+                        subTitle: 'Chair',
+                        imageURL: 'assets/image_category1.png',
+                      )
+                    ],
+                    options: CarouselOptions(),
                   ),
                 )
               ],
