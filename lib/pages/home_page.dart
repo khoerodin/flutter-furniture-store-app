@@ -3,8 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:space/pages/home_category_item.dart';
 import 'package:space/theme.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int categoryIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -142,20 +149,77 @@ class HomePage extends StatelessWidget {
 
                 // NOTE: CATEGORY CAROUSEL
                 Container(
-                  margin: const EdgeInsets.only(
-                    top: 25,
-                  ),
+                  margin: const EdgeInsets.only(top: 25),
                   child: CarouselSlider(
                     items: const [
                       HomeCategoryItem(
                         title: 'Minimalis Chair',
                         subTitle: 'Chair',
-                        imageURL: 'assets/image_category1.png',
-                      )
+                        imageURL: 'assets/image_product_category1.png',
+                      ),
+                      HomeCategoryItem(
+                        title: 'Minimalis Table',
+                        subTitle: 'Table',
+                        imageURL: 'assets/image_product_category2.png',
+                      ),
+                      HomeCategoryItem(
+                        title: 'Minimalis Chair',
+                        subTitle: 'Chair',
+                        imageURL: 'assets/image_product_category3.png',
+                      ),
                     ],
-                    options: CarouselOptions(),
+                    options: CarouselOptions(
+                      height: 140,
+                      enableInfiniteScroll: false,
+                      viewportFraction: 1,
+                      onPageChanged: (index, reason) {
+                        setState(() {
+                          categoryIndex = index;
+                        });
+                      },
+                    ),
                   ),
-                )
+                ),
+
+                // NOTE: CATEGORY CAROUSEL INDICATOR
+                Container(
+                  margin: const EdgeInsets.only(
+                    top: 13,
+                    left: 24,
+                    right: 24,
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 10,
+                        height: 10,
+                        margin: const EdgeInsets.only(right: 10),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: categoryIndex == 0 ? kBlackColor : kGreyColor,
+                        ),
+                      ),
+                      Container(
+                        width: 10,
+                        height: 10,
+                        margin: const EdgeInsets.only(right: 10),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: categoryIndex == 1 ? kBlackColor : kGreyColor,
+                        ),
+                      ),
+                      Container(
+                        width: 10,
+                        height: 10,
+                        margin: const EdgeInsets.only(right: 10),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: categoryIndex == 2 ? kBlackColor : kGreyColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             )
           ],

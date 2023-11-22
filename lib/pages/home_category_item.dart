@@ -28,7 +28,38 @@ class HomeCategoryItem extends StatelessWidget {
                 color: kWhiteColor,
                 borderRadius: BorderRadius.circular(14),
               ),
+              child: Row(
+                children: [
+                  const SizedBox(width: 150),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        title,
+                        style: blackTextStyle.copyWith(
+                          fontSize: 18,
+                          fontWeight: semiBold,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 4,
+                      ),
+                      Text(
+                        subTitle,
+                        style: greyTextStyle.copyWith(
+                          fontWeight: semiBold,
+                        ),
+                      )
+                    ],
+                  )
+                ],
+              ),
             ),
+          ),
+          Image.asset(
+            imageURL,
+            height: 122,
           )
         ],
       ),
