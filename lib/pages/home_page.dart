@@ -220,6 +220,53 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
+
+                // NOTE: POPULAR SECTION
+                Container(
+                  margin: const EdgeInsets.only(top: 24),
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(40),
+                    ),
+                    color: kWhiteColor,
+                  ),
+                  child: Column(
+                    children: [
+                      Container(
+                        margin: const EdgeInsets.only(
+                          top: 24,
+                          left: 24,
+                          right: 24,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Category',
+                              style: blackTextStyle.copyWith(
+                                fontSize: 24,
+                                fontWeight: semiBold,
+                              ),
+                            ),
+                            Text(
+                              'Show All',
+                              style: blackTextStyle,
+                            )
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      SizedBox(
+                        height: 300,
+                        child: Row(
+                          children: [],
+                        ),
+                      )
+                    ],
+                  ),
+                )
               ],
             )
           ],
