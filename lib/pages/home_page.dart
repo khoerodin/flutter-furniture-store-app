@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:space/pages/home_category_item.dart';
 import 'package:space/theme.dart';
+import 'package:space/widgets/home_popular_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -258,12 +259,35 @@ class _HomePageState extends State<HomePage> {
                       const SizedBox(
                         height: 16,
                       ),
-                      SizedBox(
-                        height: 300,
-                        child: Row(
-                          children: [],
+                      const SizedBox(
+                        height: 310,
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              HomePopularItem(
+                                title: 'Poan Chair',
+                                imageURL: 'assets/image_product_popular1.png',
+                                price: 34,
+                                isWishlist: true,
+                              ),
+                              HomePopularItem(
+                                title: 'Poan Chair',
+                                imageURL: 'assets/image_product_popular2.png',
+                                price: 20,
+                                isWishlist: false,
+                              ),
+                              HomePopularItem(
+                                title: 'Poan Chair',
+                                imageURL: 'assets/image_product_popular3.png',
+                                price: 27,
+                                isWishlist: false,
+                              ),
+                            ],
+                          ),
                         ),
-                      )
+                      ),
+                      const SizedBox(height: 50)
                     ],
                   ),
                 )
