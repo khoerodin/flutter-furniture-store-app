@@ -15,7 +15,7 @@ class HomeCategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 123,
       width: MediaQuery.of(context).size.width - 24 * 2,
       child: Stack(

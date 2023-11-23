@@ -88,38 +88,43 @@ class _HomePageState extends State<HomePage> {
                 ),
 
                 // NOTE: SEARCH BAR
-                Container(
-                  margin: const EdgeInsets.only(
-                    top: 30,
-                    left: 24,
-                    right: 24,
-                  ),
-                  padding: const EdgeInsets.only(
-                    left: 16,
-                    top: 17,
-                    right: 16,
-                    bottom: 17,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14),
-                    color: kWhiteColor,
-                  ),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Seach',
-                        style: greyTextStyle.copyWith(
-                          fontSize: 16,
-                          fontWeight: semiBold,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, '/search-page');
+                  },
+                  child: Container(
+                    margin: const EdgeInsets.only(
+                      top: 30,
+                      left: 24,
+                      right: 24,
+                    ),
+                    padding: const EdgeInsets.only(
+                      left: 16,
+                      top: 17,
+                      right: 16,
+                      bottom: 17,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(14),
+                      color: kWhiteColor,
+                    ),
+                    child: Row(
+                      children: [
+                        Text(
+                          'Seach',
+                          style: greyTextStyle.copyWith(
+                            fontSize: 16,
+                            fontWeight: semiBold,
+                          ),
                         ),
-                      ),
-                      const Spacer(),
-                      Image.asset(
-                        'assets/icon_search.png',
-                        width: 24,
-                        color: kGreyColor,
-                      )
-                    ],
+                        const Spacer(),
+                        Image.asset(
+                          'assets/icon_search.png',
+                          width: 24,
+                          color: kGreyColor,
+                        )
+                      ],
+                    ),
                   ),
                 ),
 
