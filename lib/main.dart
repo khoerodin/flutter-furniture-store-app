@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:space/pages/home_page.dart';
 import 'package:space/pages/on_boarding_page.dart';
 import 'package:space/pages/search_page.dart';
+import 'package:space/pages/search_result_page.dart';
 import 'package:space/pages/sign_in_page.dart';
 import 'package:space/pages/splash_page.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/sign-in': (context) => const SignInPage(),
         '/home': (context) => const HomePage(),
         '/search-page': (context) => const SearchPage(),
+        '/search-result': (context) => const SearchResultPage(),
       },
     );
   }
