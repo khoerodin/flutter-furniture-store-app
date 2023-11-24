@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:space/theme.dart';
+import 'package:space/widgets/skeleton_item.dart';
 
 class SearchResultPage extends StatelessWidget {
   const SearchResultPage({super.key});
@@ -67,27 +68,78 @@ class SearchResultPage extends StatelessWidget {
               indicatorColor: kBlackColor,
               labelColor: kBlackColor,
               isScrollable: true,
-              tabs: [
-                Tab(
-                  text: 'Chair ',
-                ),
-                Tab(
-                  text: 'Table ',
-                ),
-                Tab(
-                  text: 'Accessories ',
-                ),
-                Tab(
-                  text: 'Living Room ',
-                ),
+              tabs: const [
+                Tab(text: 'Chair '),
+                Tab(text: 'Table '),
+                Tab(text: 'Accessories '),
+                Tab(text: 'Living Room '),
               ],
             ),
           ),
         ),
-        body: Center(
-          child: Text('search result page'),
+        body: TabBarView(
+          children: [
+            buildBody(),
+            buildBody(),
+            buildBody(),
+            buildBody(),
+          ],
         ),
       ),
     );
+  }
+
+  Widget buildBody() {
+    return ListView(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 24,
+      ),
+      children: [
+        const SizedBox(
+          height: 30,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Result for: Poang',
+              style: blackTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: semiBold,
+              ),
+            ),
+            Image.asset(
+              'assets/icon_list.png',
+              width: 24,
+            )
+          ],
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        buildLoading(),
+      ],
+    );
+  }
+
+  Widget buildLoading() {
+    return Wrap(
+      crossAxisAlignment: WrapCrossAlignment.center,
+      spacing: 18,
+      runSpacing: 18,
+      children: [
+        SkeletonItem(),
+        SkeletonItem(),
+        SkeletonItem(),
+        SkeletonItem(),
+        SkeletonItem(),
+        SkeletonItem(),
+        SkeletonItem(),
+      ],
+    );
+  }
+
+  Widget buildGrid() {
+    return Container();
   }
 }
