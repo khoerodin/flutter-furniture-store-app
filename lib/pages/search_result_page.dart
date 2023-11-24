@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:space/theme.dart';
+import 'package:space/widgets/product_grid_item.dart';
+import 'package:space/widgets/product_list_item.dart';
 import 'package:space/widgets/skeleton_item.dart';
 
 class SearchResultPage extends StatelessWidget {
@@ -21,9 +23,14 @@ class SearchResultPage extends StatelessWidget {
             elevation: 0,
             title: Row(
               children: [
-                Icon(
-                  Icons.chevron_left,
-                  color: kBlackColor,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(
+                    Icons.chevron_left,
+                    color: kBlackColor,
+                  ),
                 ),
                 const SizedBox(width: 18),
                 Expanded(
@@ -117,17 +124,20 @@ class SearchResultPage extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        buildLoading(),
+        // buildLoading(),
+        buildGrid(),
+        // buildList(),
       ],
     );
   }
 
   Widget buildLoading() {
-    return Wrap(
+    return const Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       spacing: 18,
       runSpacing: 18,
       children: [
+        SkeletonItem(),
         SkeletonItem(),
         SkeletonItem(),
         SkeletonItem(),
@@ -140,6 +150,107 @@ class SearchResultPage extends StatelessWidget {
   }
 
   Widget buildGrid() {
-    return Container();
+    return const Wrap(
+      crossAxisAlignment: WrapCrossAlignment.center,
+      spacing: 18,
+      runSpacing: 18,
+      children: [
+        ProductGridItem(
+          title: 'Poan Chair',
+          imageURL: 'assets/image_product_grid1.png',
+          price: 34,
+          isWishlist: true,
+        ),
+        ProductGridItem(
+          title: 'Poan Chair',
+          imageURL: 'assets/image_product_grid2.png',
+          price: 34,
+          isWishlist: false,
+        ),
+        ProductGridItem(
+          title: 'Poan Chair',
+          imageURL: 'assets/image_product_grid3.png',
+          price: 34,
+          isWishlist: false,
+        ),
+        ProductGridItem(
+          title: 'Poan Chair',
+          imageURL: 'assets/image_product_grid4.png',
+          price: 34,
+          isWishlist: true,
+        ),
+        ProductGridItem(
+          title: 'Poan Chair',
+          imageURL: 'assets/image_product_grid1.png',
+          price: 34,
+          isWishlist: true,
+        ),
+        ProductGridItem(
+          title: 'Poan Chair',
+          imageURL: 'assets/image_product_grid2.png',
+          price: 34,
+          isWishlist: false,
+        ),
+        ProductGridItem(
+          title: 'Poan Chair',
+          imageURL: 'assets/image_product_grid3.png',
+          price: 34,
+          isWishlist: false,
+        ),
+        ProductGridItem(
+          title: 'Poan Chair',
+          imageURL: 'assets/image_product_grid4.png',
+          price: 34,
+          isWishlist: true,
+        ),
+      ],
+    );
+  }
+
+  Widget buildList() {
+    return const Column(
+      children: [
+        ProductListItem(
+          title: 'Poan Chair',
+          price: 45,
+          imageURL: 'assets/image_product_list1.png',
+        ),
+        ProductListItem(
+          title: 'Poan Chair',
+          price: 36,
+          imageURL: 'assets/image_product_list2.png',
+        ),
+        ProductListItem(
+          title: 'Poan Chair',
+          price: 19,
+          imageURL: 'assets/image_product_list3.png',
+        ),
+        ProductListItem(
+          title: 'Poan Chair',
+          price: 44,
+          imageURL: 'assets/image_product_list4.png',
+        ),
+        ProductListItem(
+          title: 'Poan Chair',
+          price: 45,
+          imageURL: 'assets/image_product_list1.png',
+        ),
+        ProductListItem(
+          title: 'Poan Chair',
+          price: 36,
+          imageURL: 'assets/image_product_list2.png',
+        ),
+        ProductListItem(
+          title: 'Poan Chair',
+          price: 19,
+          imageURL: 'assets/image_product_list3.png',
+        ),
+        ProductListItem(
+          title: 'Poan Chair',
+          price: 44,
+          imageURL: 'assets/image_product_list4.png',
+        ),
+      ],
+    );
   }
 }
