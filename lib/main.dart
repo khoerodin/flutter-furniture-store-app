@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:space/pages/category_page.dart';
 import 'package:space/pages/home_page.dart';
 import 'package:space/pages/on_boarding_page.dart';
 import 'package:space/pages/search_page.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomePage(),
         '/search-page': (context) => const SearchPage(),
         '/search-result': (context) => const SearchResultPage(),
+        '/category': (context) => const CategoryPage(),
       },
     );
   }
