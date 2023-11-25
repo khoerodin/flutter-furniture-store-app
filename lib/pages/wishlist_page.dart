@@ -66,6 +66,13 @@ class _WishlistPageState extends State<WishlistPage> {
         bottomNavigationBar: ClipRRect(
           borderRadius: BorderRadius.circular(20),
           child: BottomNavigationBar(
+            onTap: (value) {
+              if (value == 0) {
+                Navigator.pushNamed(context, '/home');
+              } else if (value == 2) {
+                Navigator.pushNamed(context, '/profile');
+              }
+            },
             showSelectedLabels: false,
             showUnselectedLabels: false,
             backgroundColor: kWhiteColor,
