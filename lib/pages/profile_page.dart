@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:space/theme.dart';
+import 'package:space/widgets/profile_menu_item.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -103,6 +104,51 @@ class ProfilePage extends StatelessWidget {
                         ),
                       ),
                     )
+                  ],
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(top: 50),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 32,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: const BorderRadius.vertical(
+                    top: Radius.circular(36),
+                  ),
+                  color: kWhiteColor,
+                ),
+                child: const Column(
+                  children: [
+                    ProfileMenuItem(
+                      iconURL: 'assets/icon_profile.png',
+                      title: 'My Profile',
+                    ),
+                    ProfileMenuItem(
+                      iconURL: 'assets/icon_address.png',
+                      title: 'My Address',
+                    ),
+                    ProfileMenuItem(
+                      iconURL: 'assets/icon_order.png',
+                      title: 'My Order',
+                    ),
+                    ProfileMenuItem(
+                      iconURL: 'assets/icon_payment.png',
+                      title: 'Payment Method',
+                    ),
+                    ProfileMenuItem(
+                      iconURL: 'assets/icon_wishlist.png',
+                      title: 'My Wishlist',
+                    ),
+                    ProfileMenuItem(
+                      iconURL: 'assets/icon_faq.png',
+                      title: 'Frequently Asked Questions',
+                    ),
+                    ProfileMenuItem(
+                      iconURL: 'assets/icon_cs.png',
+                      title: 'Customer Care',
+                    ),
                   ],
                 ),
               )
