@@ -24,6 +24,11 @@ class _HomePageState extends State<HomePage> {
             showSelectedLabels: false,
             showUnselectedLabels: false,
             backgroundColor: kWhiteColor,
+            onTap: (value) {
+              if (value == 1) {
+                Navigator.pushNamed(context, '/wishlist');
+              }
+            },
             items: [
               BottomNavigationBarItem(
                 icon: Image.asset(
