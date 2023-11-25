@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:space/theme.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
   const DetailPage({super.key});
+
+  @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
+  Color indicatorColor = const Color(0xff394a54);
+  double indicatorMargin = 5;
 
   @override
   Widget build(BuildContext context) {
@@ -104,6 +112,53 @@ class DetailPage extends StatelessWidget {
                               fontSize: 18,
                             ),
                           ),
+                          const SizedBox(
+                            height: 16,
+                          ),
+                          SizedBox(
+                            height: 50,
+                            child: Stack(
+                              alignment: Alignment.centerLeft,
+                              children: [
+                                Row(
+                                  children: [
+                                    colorIndicator(const Color(0xff394a54), 0),
+                                    const SizedBox(
+                                      width: 20,
+                                    ),
+                                    colorIndicator(const Color(0xffeba823), 1),
+                                    const SizedBox(
+                                      width: 20,
+                                    ),
+                                    colorIndicator(const Color(0xff757477), 2),
+                                    const SizedBox(
+                                      width: 20,
+                                    ),
+                                    colorIndicator(const Color(0xff29282c), 3),
+                                    const SizedBox(
+                                      width: 20,
+                                    ),
+                                    colorIndicator(const Color(0xffece9da), 4)
+                                  ],
+                                ),
+                                Container(
+                                  width: 40,
+                                  height: 40,
+                                  margin: EdgeInsets.only(
+                                    left: indicatorMargin,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: indicatorColor,
+                                    border: Border.all(
+                                      width: 3,
+                                      color: kWhiteColor,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
                         ],
                       ),
                     ),
@@ -169,6 +224,25 @@ class DetailPage extends StatelessWidget {
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget colorIndicator(Color color, int index) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          indicatorColor = color;
+          indicatorMargin = 5 + (index * 70);
+        });
+      },
+      child: Container(
+        width: 50,
+        height: 50,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: color,
         ),
       ),
     );
